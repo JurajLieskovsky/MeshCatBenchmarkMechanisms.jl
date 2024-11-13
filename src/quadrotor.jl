@@ -1,9 +1,9 @@
 # bodies
-function set_quadrotor!(vis, a)
-    setobject!(vis[:quadrotor][:body], HyperRectangle(Vec(-a, -a, -0.06), Vec(2 * a, 2 * a, 0.12)), green)
+function set_quadrotor!(vis, width, height, radius)
+    setobject!(vis[:quadrotor][:body], HyperRectangle(Vec(-width / 2, -width / 2, -height/2), Vec(width, width, height)), green)
 
-    for (i, (x, y)) in enumerate([[a, -a], [a, a], [-a, a], [-a, -a]])
-        setobject!(vis[:quadrotor][Symbol("prop$i")], Cylinder(Point(x, y, 0.03), Point(x, y, 0.09), 0.25), blue)
+    for (i, (x, y)) in enumerate(width / 2 * [[1, -1], [1, 1], [-1, 1], [-1, -1]])
+        setobject!(vis[:quadrotor][Symbol("prop$i")], Cylinder(Point(x, y, height/2), Point(x, y, height), radius), blue)
     end
 end
 
