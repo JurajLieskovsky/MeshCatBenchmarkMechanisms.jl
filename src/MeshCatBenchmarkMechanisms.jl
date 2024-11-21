@@ -15,5 +15,6 @@ const blue = MeshPhongMaterial(color=RGB(0, 0, 1))
 
 # benchmark mechanisms
 include("quadrotor.jl")
+include("cartpole.jl")
 
 end # module MeshCatBenchmarkMechanisms
